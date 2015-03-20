@@ -22,9 +22,9 @@ namespace Cake.MSDTC
         public void Start(int timeout = 10)
         {
             Activate(
-               ServiceControllerStatus.Running,
                ServiceControllerStatus.Stopped,
-               service => service.Continue(),
+               ServiceControllerStatus.Running,
+               service => service.Start(),
                "MSDTC started.",
                "MSDTC already running.",
                "MSDTC starting...",
@@ -36,7 +36,7 @@ namespace Cake.MSDTC
             Activate(
                ServiceControllerStatus.Running,
                ServiceControllerStatus.Stopped,
-               service => service.Continue(),
+               service => service.Stop(),
                "MSDTC stopped.",
                "MSDTC already stopped.",
                "MSDTC stopping...",
@@ -48,7 +48,7 @@ namespace Cake.MSDTC
             Activate(
                 ServiceControllerStatus.Running,
                 ServiceControllerStatus.Paused,
-                service => service.Continue(),
+                service => service.Pause(),
                 "MSDTC paused.",
                 "MSDTC already paused.",
                 "MSDTC pausing...",
